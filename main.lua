@@ -101,7 +101,7 @@ function love.update(dt)
         ball.y = paddle.y - ball.radius
         ball.dy = -ball.dy
 
-        -- Add some angle based on where ball hit the paddle
+        -- Angle based on where the ball hit the paddle
         local hitPos = (ball.x - paddle.x) / paddle.width - 0.5
         ball.dx = ball.dx + hitPos * 200
     end
@@ -164,13 +164,11 @@ function love.keypressed(key)
     end
 end
 
--- Helper function to check collision between circle and rectangle
+
 function CheckCircleRectCollision(cx, cy, cr, rx, ry, rw, rh)
-    -- Find closest point on rectangle to circle center
     local closestX = math.max(rx, math.min(cx, rx + rw))
     local closestY = math.max(ry, math.min(cy, ry + rh))
 
-    -- Calculate distance between circle center and this closest point
     local distanceX = cx - closestX
     local distanceY = cy - closestY
 
